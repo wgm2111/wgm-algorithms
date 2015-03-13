@@ -15,38 +15,34 @@ from __future__ import print_function
 # Singly-linked list
 class Node(object):
     "Basic container storing data and the next Node."
-
+    next_node = None
     def __init__(self, data, next_node):
         self.data = data 
         self.next_node = next_node
 
 class SingleList(object):
     "Constructor for a singly linked list."
-
     head = None
     tail = None
 
     def __repr__(self):
         out = "Showing singly linked list data:\n"
-
         current_node = self.head
-        while current_node is not None:
+        while current_node is not self.tail:
             out += "\t -> {0}\n".format(current_node.data)
             current_node = current_node.next_node
         else:
-            out += "\t -> {0}".format(None)
-
+            out += "\t -> {0}".format(current_node.data)
         return out
             
-
     def append(self, data):
         node = Node(data, None)
         if self.head is None:
-            self.head = self.tail = node
+            self.head = node
+            self.tail = node
         else:
             self.tail.next_node = node
-        self.tail.next_node = node
-        self.tail = node
+            self.tail = node
         
     def remove(self, node_value):
         current_node = self.head
@@ -56,7 +52,7 @@ class SingleList(object):
                 if previous_node is not None:
                     previous_node.next_node = current_node.next_node
                 else:
-                    self.head = current_node.next
+                    self.head = current_node.next_node
 
             # Needed for next iteration
             previous_node = current_node
