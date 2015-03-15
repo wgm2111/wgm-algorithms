@@ -90,9 +90,8 @@ if __name__ == "__main__":
     # Make a shuffled list of the integers from 0 to N-1
     N = 25
     Ntimes = 10
-    for n in range(Ntimes):    
-        a = range(N)
-        shuffle(a)
+    a = range(N)
+    shuffle(a)
     msg = "Tyring a simple case. The list is {}."
     print(msg.format(a))
     msg =  "\tBrute force: there are {} inversions"
@@ -102,13 +101,13 @@ if __name__ == "__main__":
     merge_count, asorted = count_inversions(a)
     print(msg.format(merge_count))
     msg = "\tMerge returned the sorted list, range(N):{}"
-    merge_true = (sum([(_a!=_r) for _a, _r in zip(asorted, range(n))]) == 0)
+    merge_true = (sum([(_a!=_r) for _a, _r in zip(asorted, range(N))]) == 0)
     print(msg.format(merge_true))
 
     
     # Make a shuffled list of the integers from 0 to N-1
-    N = 2000
-    Ntimes = 10
+    N = 5000
+    Ntimes = 5
     for n in range(Ntimes):    
         a = range(N)
         shuffle(a)

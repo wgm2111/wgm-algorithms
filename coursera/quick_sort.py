@@ -97,14 +97,38 @@ def qs_middle(a):
 
 # self test and performance profile
 if __name__ == "__main__":
+
+
+
+
+    # Make a shuffled list of the integers from 0 to N-1
+    N = 8
+    Ntimes = 10
+    a = range(N)
+    shuffle(a)
+    msg = "Tyring the simple case of sorting the list {}."
+    print(msg.format(a))
+    msg =  "\tRandom pivot sorting returned, {}."
+    print(msg.format(qs_random(copy(a))))
+    msg =  "\tFirst pivot sorting returned,  {}."
+    print(msg.format(qs_first(copy(a))))
+    msg =  "\tMiddle pivot sorting returned, {}."
+    print(msg.format(qs_middle(copy(a))))
     
     
     # Make a shuffled list of the integers from 0 to N-1
-    M = 5                       # different numbers
-    N = 100                    # numbers in the list
-    Ntimes = 14                 # repeated samples
+    M = 50                       # different numbers
+    N = 1500                     # numbers in the list
+    Ntimes = 15                  # repeated samples
+
+
+    msg = "Profiling test:"
+    msg +="sort a list (N={}) of {} different integers.  Repeat {} times."
+    print(msg.format(N, M, Ntimes))
+    
     for n in range(Ntimes):    
         
+        a = [i//(N//M) for i in range(N)]
         a = [i//(N//M) for i in range(N)]
         a = a[-1::-1]
         # shuffle(a)
@@ -119,11 +143,3 @@ if __name__ == "__main__":
 
         amiddle = copy(a)
         amiddle = qs_middle(a)
-
-        # Check sorted
-        msg = "For n = {} quick sort works: random {}, first {}, middle {}"
-
-        randsorts = all([(l0<=l1) for l0, l1 in zip(arandom[:-1], arandom[1:])])
-        firstsorts = all([(l0<=l1) for l0, l1 in zip(afirst[:-1], afirst[1:])])
-        middlesorts = all([(l0<=l1) for l0, l1 in zip(amiddle[:-1], amiddle[1:])])
-        print(msg.format(n, randsorts, firstsorts, middlesorts))
