@@ -5,16 +5,17 @@
 # 
 
 """
-This module contains python implementation of the quick sort algorithm. 
+This module contains a python implementation of a selection algorithm 
+to determine the ith smallest element using privot sorting (like quick sort)
 
-PLAN: Running as a script will print out a test case with a check against 
-the known sorted array.  Also this print profile information after closing
-the interactive propt. 
+Profile is printed after the program exits (i.e. after quiting Ipython). 
+
+** Dependencies **
+Profiling requires that "profilehooks" is installed.  
 
 Learning points: 
-  REMEMBER THE BASE CASE!!!!
-
-NOTES: Based on Coursera lectures on the design of algorithms (part 1). 
+  Probably best to do sanity checks on any algorithm.  Especially when 
+  recursion is used.
 
 """
 
