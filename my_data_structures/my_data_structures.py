@@ -80,6 +80,12 @@ class LinkedList(object):
 class Stack(LinkedList):
     """
     Construct a stack with pust/pop functionality.
+
+    example:
+    >>> s = Stack()
+    >>> a = [s.push(i) for i in range(5)]
+    >>> [s.pop() for i in range(6)]
+    [4, 3, 2, 1, 0, None]
     """
     # Insertion methods
     def push(self, data):
@@ -96,6 +102,10 @@ class Stack(LinkedList):
 class Queue(LinkedList):
     """
     Construct a queue with enqueue/dequeue functionality.
+    >>> q = Queue()
+    >>> a = [q.enqueue(i) for i in range(5)]
+    >>> [q.dequeue() for i in range(6)]
+    [0, 1, 2, 3, 4, None]
     """
     # Insertion methods
     def enqueue(self, data):
@@ -109,3 +119,11 @@ class Queue(LinkedList):
         return out
         
         
+
+
+# Run doctests when called as a script
+if __name__ == "__main__":
+
+    # Run the doctests
+    import doctest
+    doctest.testmod()
