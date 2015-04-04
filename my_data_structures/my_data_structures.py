@@ -32,10 +32,38 @@ class Node(object):
 class LinkedList(object):
     """
     Construct a list of singly connected nodes.
+    
+    example
+    >>> ll = LinkedList()
+    >>> a = [ll.insertLast(i) for i in range(4)]
+    >>> print(ll)
+    0 -> 1 -> 2 -> 3
     """
     # List data
     first = None
     last = None
+
+    # Make a function to support printing
+    def __repr__(self):
+        "Return a string for us in printing."
+        
+        # Empty list case
+        if self.first == None:
+            return "LinkedList: {}".format(None)
+
+        # Make a list of strings for each node
+        item_list = []
+        node = self.first
+        item_list.append(str(node.data))
+        on_last_node = node is self.last
+        while not on_last_node:
+            node = node.next_node
+            item_list.append(str(node.data))
+            on_last_node = (node is self.last)
+            
+        # Make the string
+        out = " -> ".join(item_list)
+        return out
 
     # Insertion methods
     def insertFirst(self, data):
